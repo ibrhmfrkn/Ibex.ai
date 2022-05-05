@@ -26,7 +26,7 @@ server = Server
 database = Database 
 username = Username 
 password = Password 
-conn = pyodbc.connect('DRIVER={Sql Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = conn.cursor()
 
 
