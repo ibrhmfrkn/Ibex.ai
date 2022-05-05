@@ -23,11 +23,12 @@ Password='P)pE8J%XYVdv)4k_K%8]v@f)'
 
 
 
-def connection(server,database,username,password):
-    conn = pyodbc.connect('DRIVER={Sql Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
-    return conn,conn.cursor()
-
-conn,cursor=connection(Server,Database,Username,Password)
+server = Server
+database = Database 
+username = Username 
+password = Password 
+conn = pyodbc.connect('DRIVER={Sql Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
+cursor = conn.cursor()
 
 def sql_query(sql):     
     return cursor.execute(sql)
