@@ -26,10 +26,10 @@ server = Server
 database = Database 
 username = Username 
 password = Password 
-conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = conn.cursor()
 
+conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
 
+cursor=conn.cursor()
 
 def age_interval(age_dist):
 
