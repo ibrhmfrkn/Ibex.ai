@@ -30,12 +30,6 @@ password = Password
 conn = pyodbc.connect('DRIVER={Sql Server};SERVER='+server+'; DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = conn.cursor()
 
-def sql_query(sql):     
-    return cursor.execute(sql)
-
-sql_query("""SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES """)
-row=cursor.fetchall()
-
 
 
 def age_interval(age_dist):
