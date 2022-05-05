@@ -22,7 +22,6 @@ Username='candidate'
 Password='P)pE8J%XYVdv)4k_K%8]v@f)'
 
 
-
 server = Server
 database = Database 
 username = Username 
