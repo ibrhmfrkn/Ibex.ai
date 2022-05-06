@@ -254,6 +254,33 @@ with st.expander("3-) Plot a suitable graph showing the number of revenue-genera
         with c2:
             st.write('DataFrame')
             st.dataframe(date_rev)
+     if st.button('*Click For The Second Approach With Distinct * '):
+        c1,c2 = st.columns([2,1])
+         
+        query_distinct=''' SELECT COUNT(DISTINCT(UserId)) AS Count,CONCAT(YEAR([Date]), '-', RIGHT(CONCAT('00', MONTH([Date])), 2)) AS Year_Month
+        FROM dbo.Activity WHERE Revenue IS NOT NULL OR Revenue !=0
+        GROUP BY (CONCAT(YEAR([Date]), '-', RIGHT(CONCAT('00', MONTH([Date])), 2)))
+        ORDER BY Year_Month '''
+
+
+        SQL_Query = pd.read_sql_query(query_distinct, conn)
+
+        date_rev = pd.DataFrame(SQL_Query)
+    
+        fig = px.bar(date_rev, x='Year_Month', y='Count', text='Count',color='Count',
+             color_continuous_scale=px.colors.sequential.Bluered)
+        fig.update_traces( textposition='outside')
+        fig.update_xaxes(title='Date',type='category',tickangle=45)
+        fig.update_layout(uniformtext_minsize=6, uniformtext_mode='hide',
+                 title_text='The Number of Revenue-Generating Distinct Users By Year-Month', title_x=0.5)
+        fig.add_hline(y=np.mean(date_rev['Count']), line_width=0.4,opacity=0.4,line_dash = 'dash', line_color = 'firebrick')
+        st.plotly_chart(fig, use_container_width=True)
+        with c1:
+            st.code(query_distinct, language='sql')
+             
+        with c2:
+            st.write('DataFrame')
+            st.dataframe(date_rev)
 
 
 
