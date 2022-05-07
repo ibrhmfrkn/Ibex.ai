@@ -186,7 +186,7 @@ with st.expander('2-) Plot a suitable graph showing the distribution of total re
                  st.code(query, language='sql')
              
             with c2:
-                st.write('DataFrame')
+                st.write('DataFrame Preview')
                 st.dataframe(age_rev_dist.head(50))
         if st.button('Click For Scatter Plot'):
             fig = px.scatter(age_rev_dist, x="Age", y="Revenue", color=age_rev_dist['Age_Dist_2'].astype(str))
@@ -226,8 +226,8 @@ with st.expander("3-) Plot a suitable graph showing the number of revenue-genera
             st.code(query, language='sql')
              
         with c2:
-            st.write('DataFrame')
-            st.dataframe(date_rev)
+            st.write('DataFrame Preview')
+            st.dataframe(date_rev.head(50))
     if st.button('*Click For The Second Approach With Distinct * '):
         c1,c2 = st.columns([2,1])
          
@@ -253,8 +253,8 @@ with st.expander("3-) Plot a suitable graph showing the number of revenue-genera
             st.code(query_distinct, language='sql')
              
         with c2:
-            st.write('DataFrame')
-            st.dataframe(date_rev)
+            st.write('DataFrame Preview')
+            st.dataframe(date_rev.head(50))
 
 
 
@@ -293,8 +293,8 @@ with st.expander("4-) Visualise the response rate of each offer. The response ra
                 st.code(query, language='sql')
              
             with c2:
-                st.write('DataFrame')
-                st.dataframe(response)
+                st.write('DataFrame Preview')
+                st.dataframe(response.head(50))
         if st.button('Click For The Generated Revenue For Each Offer'):
             query_=''' SELECT o.Name , c.UserId,c.SendDate,c.OfferId,a.Date AS 'Revenue Date',a.Revenue 
                 FROM dbo.Comms c LEFT JOIN Activity a ON
@@ -316,8 +316,8 @@ with st.expander("4-) Visualise the response rate of each offer. The response ra
                 st.code(query_, language='sql')
              
             with c2:
-                st.write('DataFrame')
-                st.dataframe(comm_rev_offer)
+                st.write('DataFrame Preview')
+                st.dataframe(comm_rev_offer.head(50))
 
 
                 
