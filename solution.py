@@ -323,7 +323,7 @@ with st.expander("4-) Visualise the response rate of each offer. The response ra
                 
                 
                 
-st.markdown('_Source code is_ **_https://github.com/ibrhmfrkn/Ibex.ai_**.')
+st.markdown('_Source code _ **_https://github.com/ibrhmfrkn/Ibex.ai_**.')
  
 
   
