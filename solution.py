@@ -235,7 +235,7 @@ with st.expander("4-) Visualise the response rate of each offer. The response ra
     query=''' with total_count as ( Select o.Name as Name,count(o.Name) as Total from dbo.Comms c left join Activity a on
     c.UserId=a.UserId inner join Offers o on c.OfferId=o.OfferId group by o.Name),
 
-    conversion_count as (select o.Name as offer_name,count(o.Name) as Conversion from dbo.Comms c left join Activity a on
+    conversion_count as (select o.Name as offer_name,count(o.Name) as Conversion from dbo.Comms c inner join Activity a on
     c.UserId=a.UserId inner join Offers o on c.OfferId=o.OfferId 
     where c.SendDate=a.Date or (DATEADD(dd, 1, SendDate)=A.Date) group by o.Name )
 
